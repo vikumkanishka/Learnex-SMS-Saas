@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc/mysql://localhost:3306/learnex_db
+    url: jdbc:mysql://localhost:3306/learnex_db
     username: root
     password: 200004602360
 

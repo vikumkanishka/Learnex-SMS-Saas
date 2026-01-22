@@ -4,9 +4,11 @@ import edu.icet.dto.SchoolDto;
 import edu.icet.repository.StudentRepository;
 import edu.icet.service.SchoolService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 @RequiredArgsConstructor
 public class SchoolSericeInfoImpl implements SchoolService {
 
