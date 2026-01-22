@@ -6,6 +6,7 @@ import edu.icet.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,21 +23,21 @@ public class SchoolSericeInfoImpl implements SchoolService {
 
     @Override
     public void updateSchool(SchoolDto schoolDto) {
-
+        repository.save(schoolDto);
     }
 
     @Override
     public void deleteschool(Integer id) {
-
+        repository.deleteById(id);
     }
 
     @Override
     public List<SchoolDto> getSchools() {
-        return List.of();
+        return repository.findAll();
     }
 
     @Override
-    public SchoolDto searchByID(Integer integer) {
-        return null;
+    public SchoolDto searchByID(Integer id) {
+        return repository.findById(id).get();
     }
 }
