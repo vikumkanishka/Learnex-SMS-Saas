@@ -22,6 +22,6 @@ public class schoolEntity {
     private String type;
     private String medium;
     private String email;
-    private String phoneno;
+    private Integer phoneno;
 }
 

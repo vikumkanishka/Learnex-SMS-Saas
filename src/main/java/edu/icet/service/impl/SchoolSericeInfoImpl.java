@@ -20,7 +20,6 @@ public class SchoolSericeInfoImpl implements SchoolService {
         repository.save(schoolDto);
 
     }
-
     @Override
     public void updateSchool(SchoolDto schoolDto) {
         repository.save(schoolDto);
@@ -35,7 +34,6 @@ public class SchoolSericeInfoImpl implements SchoolService {
     public List<SchoolDto> getSchools() {
         return repository.findAll();
     }
-
     @Override
     public SchoolDto searchByID(Integer id) {
         return repository.findById(id).get();
