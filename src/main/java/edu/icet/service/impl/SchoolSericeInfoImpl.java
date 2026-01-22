@@ -1,7 +1,7 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.SchoolDto;
-import edu.icet.repository.StudentRepository;
+import edu.icet.repository.SchoolRepository;
 import edu.icet.service.SchoolService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,21 +12,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SchoolSericeInfoImpl implements SchoolService {
 
-    final StudentRepository repository;
-
+    final SchoolRepository repository;
 
     @Override
-    public void addStudent(SchoolDto schoolDto) {
+    public void addSchool(SchoolDto schoolDto) {
+        repository.save(schoolDto);
 
     }
 
     @Override
-    public void updateSudent(SchoolDto schoolDto) {
+    public void updateSchool(SchoolDto schoolDto) {
 
     }
 
     @Override
-    public void deleteStudent(Integer id) {
+    public void deleteschool(Integer id) {
 
     }
 

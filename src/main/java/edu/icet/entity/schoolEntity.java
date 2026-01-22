@@ -1,6 +1,5 @@
-package edu.icet.dto;
+package edu.icet.entity;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,11 +9,10 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-@Entity
-public class SchoolDto {
+public class schoolEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer schoolid;
@@ -24,5 +22,6 @@ public class SchoolDto {
     private String type;
     private String medium;
     private String email;
-    private String phone;
+    private String phoneno;
 }
+
