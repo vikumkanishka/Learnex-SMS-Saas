@@ -2,13 +2,19 @@ package edu.icet.controller;
 
 import edu.icet.dto.StudentDto;
 import edu.icet.service.StudentService;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
+@RequestMapping("/student")
+
 public class StudentController {
 
+    final StudentService service;
 
     @PostMapping
     public void addStudent(StudentDto studentDto) {
