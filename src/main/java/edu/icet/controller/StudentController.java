@@ -2,7 +2,6 @@ package edu.icet.controller;
 
 import edu.icet.dto.StudentDto;
 import edu.icet.service.StudentService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,33 +15,33 @@ public class StudentController {
 
     final StudentService service;
 
-    @PostMapping
-    public void addStudent(StudentDto studentDto) {
-
+    @PostMapping("/add-student")
+    public void addStudent(@RequestBody StudentDto studentDto) {
+        service.addStudent(studentDto);
     }
 
-    @PutMapping
-    public void updateStudent(StudentDto studentDto) {
-
+    @PutMapping("/update-student")
+    public void updateStudent(@RequestBody StudentDto studentDto) {
+        service.updateStudent(studentDto);
     }
 
-    @DeleteMapping
-    public void deleteStudent(Integer id) {
-
+    @DeleteMapping("/delete-student/{id}")
+    public void deleteStudent(@PathVariable Integer id) {
+        service.deleteStudent(id);
     }
 
-    @GetMapping
+    @GetMapping("/get-all-students")
     public List<StudentDto> getAllStudents() {
-        return List.of();
+        return service.getAllStudents();
     }
 
-    @GetMapping
-    public StudentDto searchById(Integer id) {
-        return null;
+    @GetMapping("/search-by-id/{id}")
+    public StudentDto searchById(@PathVariable Integer id) {
+        return service.searchById(id);
     }
 
-    @GetMapping
-    public List<StudentDto> searchStudentByName(String name) {
-        return List.of();
+    @GetMapping("/search-by-name/{name}")
+    public List<StudentDto> searchStudentByName(@PathVariable String name) {
+        return service.searchStudentByName(name);
     }
 }
