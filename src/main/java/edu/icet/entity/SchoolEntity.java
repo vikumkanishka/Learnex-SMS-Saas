@@ -1,8 +1,6 @@
 package edu.icet.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +10,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class schoolEntity {
+@Entity
+@Table(name = "school_details")
+public class SchoolEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer schoolid;

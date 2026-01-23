@@ -1,10 +1,14 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.SchoolDto;
+import edu.icet.entity.SchoolEntity;
 import edu.icet.repository.SchoolRepository;
 import edu.icet.service.SchoolService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,14 +17,17 @@ public class SchoolSericeInfoImpl implements SchoolService {
 
     final SchoolRepository repository;
 
+    final ModelMapper mapper;
+
     @Override
     public void addSchool(SchoolDto schoolDto) {
-        repository.save(schoolDto);
+        SchoolEntity schoolEntity = mapper.map(schoolDto, SchoolEntity.class);
+        repository.save(schoolEntity);
     }
 
     @Override
     public void updateSchool(SchoolDto schoolDto) {
-        repository.save(schoolDto);
+        repository.save(mapper.map(schoolDto,SchoolEntity.class));
     }
 
     @Override
@@ -30,11 +37,18 @@ public class SchoolSericeInfoImpl implements SchoolService {
 
     @Override
     public List<SchoolDto> getSchools() {
-        return repository.findAll();
+        List<SchoolEntity> schoolEntities = repository.findAll();
+        List <SchoolDto> schoolDtos = new ArrayList<>();
+        schoolEntities.forEach(schoolEntity -> {
+            SchoolDto schoolDto = mapper.map(schoolEntity, SchoolDto.class);
+            schoolDtos.add(schoolDto);
+        });
+        return schoolDtos;
     }
 
     @Override
     public SchoolDto searchByID(Integer id) {
-        return repository.findById(id).get();
+        SchoolEntity schoolEntity = repository.findById(id).get();
+        return mapper.map(schoolEntity,SchoolDto.class);
     }
 }

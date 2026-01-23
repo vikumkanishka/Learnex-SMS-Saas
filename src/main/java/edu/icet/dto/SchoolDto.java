@@ -10,12 +10,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
-@Table(name = "school_details")
 
 public class SchoolDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer schoolid;
     private String schoolname;
     private String Schoolcode;
