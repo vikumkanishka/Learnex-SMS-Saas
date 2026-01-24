@@ -1,40 +1,37 @@
-package edu.icet.controller;
+package edu.icet.service.impl;
 
 import edu.icet.dto.TeacherDto;
 import edu.icet.service.TeacherService;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
-public class TeacherController implements TeacherService {
-
-
+public class TeacherServiceImpl implements TeacherService {
+    @Override
     public void addTeacher(TeacherDto teacherDto) {
 
     }
 
-
+    @Override
     public void updateTeacher(TeacherDto teacherDto) {
 
     }
 
-
+    @Override
     public void deleteTeacher(Integer id) {
 
     }
 
-
+    @Override
     public List<TeacherDto> getallTeachers() {
         return List.of();
     }
 
-
+    @Override
     public TeacherDto searchTeacherById(Integer id) {
         return null;
     }
 
-
+    @Override
     public List<TeacherDto> serachTeacherByname(String name) {
         return List.of();
     }
