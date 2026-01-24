@@ -2,40 +2,46 @@ package edu.icet.controller;
 
 import edu.icet.dto.TeacherDto;
 import edu.icet.service.TeacherService;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping(name ="/Teacher")
+@RequiredArgsConstructor
+
 public class TeacherController implements TeacherService {
 
+    final TeacherService service;
 
-    public void addTeacher(TeacherDto teacherDto) {
-
+    @PostMapping("/add-teacher")
+    public void addTeacher(@RequestBody TeacherDto teacherDto) {
+        service.addTeacher(teacherDto);
     }
 
-
-    public void updateTeacher(TeacherDto teacherDto) {
-
+    @PutMapping("/update-teacher")
+    public void updateTeacher(@RequestBody TeacherDto teacherDto) {
+        service.updateTeacher(teacherDto);
     }
 
-
-    public void deleteTeacher(Integer id) {
-
+    @DeleteMapping("/delete-teacher/{id}")
+    public void deleteTeacher(@PathVariable Integer id) {
+        service.deleteTeacher(id);
     }
 
-
+    @GetMapping("/get-all-teachers")
     public List<TeacherDto> getallTeachers() {
-        return List.of();
+        return service.getallTeachers();
     }
 
-
-    public TeacherDto searchTeacherById(Integer id) {
-        return null;
+    @GetMapping("/search-teacher-by-id/{id}")
+    public TeacherDto searchTeacherById(@PathVariable Integer id) {
+        return service.searchTeacherById(id);
     }
 
-
-    public List<TeacherDto> serachTeacherByname(String name) {
-        return List.of();
+    @GetMapping("/search-teacher-by-name/{name}")
+    public List<TeacherDto> serachTeacherByname(@PathVariable String name) {
+        return service.serachTeacherByname(name);
     }
 }
