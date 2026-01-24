@@ -23,12 +23,10 @@ public class StudentServiceImpl implements StudentService {
         StudentEntity studentEntity = mapper.map(studentDto, StudentEntity.class);
         studentrepository.save(studentEntity);
     }
-
     @Override
     public void updateStudent(StudentDto studentDto) {
         studentrepository.save(mapper.map(studentDto, StudentEntity.class));
     }
-
     @Override
     public void deleteStudent(Integer id) {
         studentrepository.deleteById(id);
