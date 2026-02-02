@@ -48,7 +48,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public TeacherDto searchTeacherById(Integer id) {
-        TeacherEntity teacherEntity = repository.findById(id).get();
+        TeacherEntity teacherEntity = repository.findById(id).orElseThrow(() -> new RuntimeException("Teacher not found"));
         return mapper.map(teacherEntity,TeacherDto.class);
     }
 

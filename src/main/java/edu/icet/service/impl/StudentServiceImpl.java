@@ -45,7 +45,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto searchById(Integer id) {
-        return mapper.map(studentrepository.findById(id).get(),StudentDto.class);
+        StudentEntity studentEntity = studentrepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
+        return mapper.map(studentEntity,StudentDto.class);
     }
 
     @Override
