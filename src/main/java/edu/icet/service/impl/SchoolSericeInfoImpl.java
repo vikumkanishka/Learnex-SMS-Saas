@@ -48,7 +48,7 @@ public class SchoolSericeInfoImpl implements SchoolService {
 
     @Override
     public SchoolDto searchByID(Integer id) {
-        SchoolEntity schoolEntity = repository.findById(id).get();
+        SchoolEntity schoolEntity = repository.findById(id).orElseThrow(() -> new RuntimeException("School not found"));
         return mapper.map(schoolEntity,SchoolDto.class);
     }
 }
