@@ -1,8 +1,10 @@
 package edu.icet.service.impl;
 
 import edu.icet.dto.ClassDto;
+import edu.icet.repository.ClassRepository;
 import edu.icet.service.ClassService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,35 +13,36 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClassServiceImpl implements ClassService {
 
-    final ClassService service;
+    final ClassRepository service;
+    final ModelMapper mapper;
 
     @Override
     public void addClass(ClassDto classDto) {
-        service.addClass(classDto);
+        service.save(classDto);
     }
 
     @Override
     public void updateClass(ClassDto classDto) {
-        service.updateClass(classDto);
+        service.save(classDto);
     }
 
     @Override
     public void deleteClass(Integer id) {
-        service.deleteClass(id);
+        service.deleteById(id);
     }
 
     @Override
     public ClassDto searchById(Integer id) {
-        return service.searchById(id);
+        return service.findById(id);
     }
 
     @Override
     public List<ClassDto> getAllClasses() {
-        return service.getAllClasses();
+        return service.findAll();
     }
 
     @Override
     public List<ClassDto> searchClassByName(String name) {
-        return service.searchClassByName(name);
+        return service.findAllByName(name);
     }
 }
