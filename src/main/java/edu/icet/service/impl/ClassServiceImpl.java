@@ -15,31 +15,31 @@ public class ClassServiceImpl implements ClassService {
 
     @Override
     public void addClass(ClassDto classDto) {
-
+        service.addClass(classDto);
     }
 
     @Override
     public void updateClass(ClassDto classDto) {
-
+        service.updateClass(classDto);
     }
 
     @Override
     public void deleteClass(Integer id) {
-
+        service.deleteClass(id);
     }
 
     @Override
     public ClassDto searchById(Integer id) {
-        return null;
+        return service.searchById(id);
     }
 
     @Override
     public List<ClassDto> getAllClasses() {
-        return List.of();
+        return service.getAllClasses();
     }
 
     @Override
     public List<ClassDto> searchClassByName(String name) {
-        return List.of();
+        return service.searchClassByName(name);
     }
 }
